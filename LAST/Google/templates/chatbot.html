@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Finance Chatbot</title>
+</head>
+<body style="background-color: white; color: #5b21b6; font-family: sans-serif;">
+  <div style="max-width: 1024px; margin: 0 auto; padding: 1.5rem;">
+    <h1 style="font-size: 3rem; font-weight: bold; margin-bottom: 2rem; text-align: center; color: #9333ea;">
+      Finance Chatbot
+    </h1>
+
+    <div id="chatbox" style="border: 1px solid #e9d5ff; padding: 1.5rem; height: 24rem; overflow-y: scroll; background-color: white; border-radius: 0.5rem; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);">
+      <!-- Chat messages will appear here -->
+    </div>
+
+    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; align-items: center;">
+      <input type="text" id="userInput" placeholder="Type your finance question here..." 
+        style="width: 100%; max-width: 32rem; padding: 1rem; border: 1px solid #d8b4fe; border-radius: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05); outline: none; transition: all 0.3s;" 
+        onfocus="this.style.boxShadow='0 0 0 2px #a855f7';" 
+        onblur="this.style.boxShadow='0 1px 2px rgba(0,0,0,0.05)';">
+      
+      <button onclick="sendMessage()" 
+        style="margin-top: 1rem; background-color: #9333ea; color: white; padding: 0.75rem 2rem; border-radius: 0.5rem; transition: all 0.3s; transform: scale(1);" 
+        onmouseover="this.style.backgroundColor='#7e22ce'; this.style.transform='scale(1.05)';" 
+        onmouseout="this.style.backgroundColor='#9333ea'; this.style.transform='scale(1)';">
+        Send
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function addMessage(sender, text) {
+      const chatbox = document.getElementById('chatbox');
+      const messageDiv = document.createElement('div');
+      messageDiv.style.marginBottom = '1rem';
+      messageDiv.style.padding = '0.5rem 1rem';
+      messageDiv.style.borderRadius = '0.5rem';
+      messageDiv.style.boxShadow = '0 1px 2px rgba(0,0,0,0.05)';
+      messageDiv.style.maxWidth = '80%';
+
+      if (sender === 'user') {
+        messageDiv.style.backgroundColor = '#ede9fe';
+        messageDiv.innerHTML = `<strong style="color:#9333ea;">You:</strong> ${text}`;
+        messageDiv.style.alignSelf = 'flex-end';
+        messageDiv.style.marginLeft = 'auto';
+      } else {
+        messageDiv.style.backgroundColor = '#f5f3ff';
+        messageDiv.innerHTML = `<strong style="color: #16a34a;">Chatbot:</strong> ${text}`;
+        messageDiv.style.alignSelf = 'flex-start';
+        messageDiv.style.marginRight = 'auto';
+      }
+
+      chatbox.appendChild(messageDiv);
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const input = document.getElementById('userInput');
+      const message = input.value.trim();
+      if (!message) return;
+      addMessage('user', message);
+      input.value = "";
+
+      try {
+        const response = await fetch('/chatbot', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message })
+        });
+
+        const data = await response.json();
+        addMessage('bot', data.reply);
+      } catch (error) {
+        console.error("Error:", error);
+        addMessage('bot', "Sorry, something went wrong. Please try again.");
+      }
+    }
+  </script>
+</body>
+</html>

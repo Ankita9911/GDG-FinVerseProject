@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personalized Financial Planning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: #ffffff; color: #800080; font-family: 'Inherit', sans-serif; margin: 0; padding: 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <h1 style="font-size: 2.75rem; font-weight: 700; text-align: center; background: linear-gradient(to right, #800080, #2575fc); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 40px;">
+      Personalized Financial Planning
+    </h1>
+    
+    <form action="/" method="post" style="max-width: 800px; margin: 0 auto; background: #ffffff; box-shadow: 0 40px 40px rgba(82, 95, 127, 0.1); border-radius: 12px; padding: 25px; border: 1.5px solid #d1c4e9; transition: transform 0.3s ease-in-out;">
+      
+      <!-- Personal Information -->
+      <section style="margin-bottom: 32px;">
+        <h2 style="font-size: 2rem; font-weight: 700; color: #800080; margin-bottom: 16px;">Personal Information</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+          <div>
+            <label for="name" style="display: block; font-size: 1.125rem; font-weight: 500; margin-bottom: 8px;">Name:</label>
+            <input type="text" id="name" name="name" required style="width: 100%; padding: 12px; border: 1px solid #b39ddb; border-radius: 6px; font-size: 1rem;">
+          </div>
+          <div>
+            <label for="age" style="display: block; font-size: 1.125rem; font-weight: 500; margin-bottom: 8px;">Age:</label>
+            <input type="number" id="age" name="age" required style="width: 100%; padding: 12px; border: 1px solid #b39ddb; border-radius: 6px; font-size: 1rem;">
+          </div>
+          <div style="grid-column: span 2;">
+            <label for="email" style="display: block; font-size: 1.125rem; font-weight: 500; margin-bottom: 8px;">Email:</label>
+            <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #b39ddb; border-radius: 6px; font-size: 1rem;">
+          </div>
+        </div>
+      </section>
+
+      <!-- Life Events & Goals -->
+      <section style="margin-bottom: 32px;">
+        <h2 style="font-size: 2rem; font-weight: 700; color: #800080; margin-bottom: 16px;">Life Events & Goals</h2>
+        <div style="margin-bottom: 16px;">
+          <p style="font-size: 1.125rem; font-weight: 500; margin-bottom: 8px;">Are you planning for marriage?</p>
+          <label style="margin-right: 24px;"><input type="radio" name="marriage" value="yes" style="accent-color: #5e35b1; transform: scale(1.2); margin-right: 8px;">Yes</label>
+          <label><input type="radio" name="marriage" value="no" checked style="accent-color: #5e35b1; transform: scale(1.2); margin-right: 8px;">No</label>
+        </div>
+        <div style="margin-bottom: 16px;">
+          <p style="font-size: 1.125rem; font-weight: 500; margin-bottom: 8px;">Do you have children or are planning for children’s education?</p>
+          <label style="margin-right: 24px;"><input type="radio" name="children" value="yes" style="accent-color: #5e35b1; transform: scale(1.2); margin-right: 8px;">Yes</label>
+          <label><input type="radio" name="children" value="no" checked style="accent-color: #5e35b1; transform: scale(1.2); margin-right: 8px;">No</label>
+        </div>
+        <div>
+          <p style="font-size: 1.125rem; font-weight: 500; margin-bottom: 8px;">Are you planning a home purchase?</p>
+          <label style="margin-right: 24px;"><input type="radio" name="home_purchase" value="yes" style="accent-color: #5e35b1; transform: scale(1.2); margin-right: 8px;">Yes</label>
+          <label><input type="radio" name="home_purchase" value="no" checked style="accent-color: #5e35b1; transform: scale(1.2); margin-right: 8px;">No</label>
+        </div>
+      </section>
+
+      <!-- Investment & Financial Information -->
+      <section style="margin-bottom: 32px;">
+        <h2 style="font-size: 2rem; font-weight: 700; color: #800080; margin-bottom: 16px;">Investment & Financial Information</h2>
+        <div style="margin-bottom: 16px;">
+          <label for="investment_amount" style="display: block; font-size: 1.125rem; font-weight: 500; margin-bottom: 8px;">Investment Amount (USD):</label>
+          <input type="number" id="investment_amount" name="investment_amount" required style="width: 100%; padding: 12px; border: 1px solid #b39ddb; border-radius: 6px; font-size: 1rem;">
+        </div>
+        <div style="margin-bottom: 16px;">
+          <label for="risk_tolerance" style="display: block; font-size: 1.125rem; font-weight: 500; margin-bottom: 8px;">Risk Tolerance:</label>
+          <select id="risk_tolerance" name="risk_tolerance" required style="width: 100%; padding: 12px; border: 1px solid #b39ddb; border-radius: 6px; font-size: 1rem;">
+            <option value="Conservative">Conservative</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Aggressive">Aggressive</option>
+          </select>
+        </div>
+        <div>
+          <label for="ticker" style="display: block; font-size: 1.125rem; font-weight: 500; margin-bottom: 8px;">Preferred Financial Instrument (Ticker):</label>
+          <input type="text" id="ticker" name="ticker" placeholder="e.g., AAPL, GOOG" style="width: 100%; padding: 12px; border: 1px solid #b39ddb; border-radius: 6px; font-size: 1rem;">
+        </div>
+      </section>
+
+      <!-- Additional Features -->
+      <section style="margin-bottom: 32px;">
+        <h2 style="font-size: 2rem; font-weight: 700; color: #800080; margin-bottom: 16px;">Additional Features</h2>
+        <p style="font-size: 1.125rem; font-weight: 500; margin-bottom: 12px;">Select additional features you want:</p>
+        <label style="display: block; margin-bottom: 8px;"><input type="checkbox" name="features" value="tax_savings" style="accent-color: #5e35b1; transform: scale(1.2); margin-right: 8px;">Tax & Savings Optimization</label>
+        <label><input type="checkbox" name="features" value="future_simulation" style="accent-color: #5e35b1; transform: scale(1.2); margin-right: 8px;">Dynamic Future Simulation</label>
+      </section>
+
+      <!-- Submit Button -->
+      <div style="text-align: center;">
+        <button type="submit" style="background: linear-gradient(to right, #000000, #050105); color: white; padding: 12px 20px; font-size: 1.2rem; border: none; border-radius: 10px; cursor: pointer; transition: 0.3s;">
+          Get Personalized Advice
+        </button>
+      </div>
+    </form>
+
+    <!-- Quick Links -->
+    <hr style="margin: 40px 0; border-color: #d1c4e9;">
+    <h3 style="font-size: 1.5rem; font-weight: 700; color: #130346; text-align: center; margin-bottom: 16px;">Quick Links</h3>
+    <ul style="list-style: disc; padding-left: 20px; text-align: center;">
+      <li><a href="/chatbot" style="color: #3949ab; text-decoration: none; font-weight: 600;">Finance Chatbot</a></li>
+      <li><a href="/simulation" style="color: #3949ab; text-decoration: none; font-weight: 600;">Dynamic Future Simulation</a></li>
+      <li><a href="/tax_savings" style="color: #3949ab; text-decoration: none; font-weight: 600;">Tax & Savings Optimization</a></li>
+      <li><a href="/followup" style="color: #3949ab; text-decoration: none; font-weight: 600;">Follow-Up Questions</a></li>
+    </ul>
+  </div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Future Simulation</title>
+</head>
+<body style="background-color: white; color: #5b21b6; font-family: sans-serif;">
+  <div style="max-width: 1024px; margin: 0 auto; padding: 1.5rem;">
+    <h1 style="font-size: 3.75rem; font-weight: bold; margin-bottom: 2.5rem; text-align: center; color: #7e22ce;">
+      Dynamic Future Simulation
+    </h1>
+    
+    <form action="/simulation" method="post" 
+      style="max-width: 36rem; margin: 0 auto; background-color: white; border: 1px solid #e9d5ff; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1); border-radius: 0.75rem; padding: 2rem; transition: transform 0.3s;">
+      
+      <div style="margin-bottom: 1.5rem;">
+        <label for="current_savings" style="display: block; font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem;">Current Savings (USD):</label>
+        <input type="number" id="current_savings" name="current_savings" required 
+          style="width: 100%; padding: 0.75rem; border: 1px solid #d8b4fe; border-radius: 0.5rem; outline: none; transition: box-shadow 0.3s;"
+          onfocus="this.style.boxShadow='0 0 0 2px #a855f7';">
+      </div>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <label for="monthly_contribution" style="display: block; font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem;">Monthly Contribution (USD):</label>
+        <input type="number" id="monthly_contribution" name="monthly_contribution" required 
+          style="width: 100%; padding: 0.75rem; border: 1px solid #d8b4fe; border-radius: 0.5rem; outline: none; transition: box-shadow 0.3s;"
+          onfocus="this.style.boxShadow='0 0 0 2px #a855f7';">
+      </div>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <label for="annual_return" style="display: block; font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem;">Expected Annual Return (%):</label>
+        <input type="number" step="0.1" id="annual_return" name="annual_return" required 
+          style="width: 100%; padding: 0.75rem; border: 1px solid #d8b4fe; border-radius: 0.5rem; outline: none; transition: box-shadow 0.3s;"
+          onfocus="this.style.boxShadow='0 0 0 2px #a855f7';">
+      </div>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <label for="years" style="display: block; font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem;">Investment Horizon (Years):</label>
+        <input type="number" id="years" name="years" required 
+          style="width: 100%; padding: 0.75rem; border: 1px solid #d8b4fe; border-radius: 0.5rem; outline: none; transition: box-shadow 0.3s;"
+          onfocus="this.style.boxShadow='0 0 0 2px #a855f7';">
+      </div>
+      
+      <div style="text-align: center;">
+        <button type="submit" 
+          style="width: 100%; background-color: #9333ea; color: white; padding: 0.75rem; border-radius: 0.5rem; transition: all 0.3s; transform: scale(1);"
+          onmouseover="this.style.backgroundColor='#7e22ce'; this.style.transform='scale(1.05)';"
+          onmouseout="this.style.backgroundColor='#9333ea'; this.style.transform='scale(1)';">
+          Run Simulation
+        </button>
+      </div>
+    </form>
+    
+    {% if simulation_result %}
+      <div style="margin-top: 2rem; background-color: #f5f3ff; border: 1px solid #e9d5ff; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <h2 style="font-size: 1.875rem; font-weight: 600; margin-bottom: 1rem; color: #9333ea;">Simulation Result</h2>
+        <p style="font-size: 1.25rem;">{{ simulation_result }}</p>
+      </div>
+    {% endif %}
+    
+    <div style="margin-top: 2rem; text-align: center;">
+      <a href="/" style="color: #7e22ce; text-decoration: none; font-size: 1.25rem;" 
+         onmouseover="this.style.textDecoration='underline';" 
+         onmouseout="this.style.textDecoration='none';">
+        Back to Home
+      </a>
+    </div>
+  </div>
+</body>
+</html>

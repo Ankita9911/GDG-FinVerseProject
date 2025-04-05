@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tax & Savings Optimization</title>
+</head>
+<body style="background-color: white; color: #5b21b6; font-family: sans-serif;">
+  <div style="max-width: 1024px; margin: 0 auto; padding: 1.5rem;">
+    
+    <!-- Heading -->
+    <h1 style="font-size: 3rem; font-weight: bold; margin-bottom: 2.5rem; text-align: center; color: #7e22ce;">
+      Tax & Savings Optimization
+    </h1>
+    
+    <form action="/tax_savings" method="post" 
+          style="max-width: 36rem; margin: 0 auto; background-color: white; border: 1px solid #e9d5ff; box-shadow: 0 15px 25px rgba(0,0,0,0.1); border-radius: 1rem; padding: 2rem; transition: transform 0.3s;">
+      
+      <!-- Annual Income -->
+      <div style="margin-bottom: 1.5rem;">
+        <label for="annual_income" style="display: block; font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem;">
+          Annual Income (USD):
+        </label>
+        <input type="number" id="annual_income" name="annual_income" required
+               style="width: 100%; padding: 0.75rem; border: 1px solid #d8b4fe; border-radius: 0.5rem; outline: none; transition: box-shadow 0.3s;"
+               onfocus="this.style.boxShadow='0 0 0 2px #a855f7';">
+      </div>
+      
+      <!-- Current Savings -->
+      <div style="margin-bottom: 1.5rem;">
+        <label for="current_savings" style="display: block; font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem;">
+          Current Savings (USD):
+        </label>
+        <input type="number" id="current_savings" name="current_savings" required
+               style="width: 100%; padding: 0.75rem; border: 1px solid #d8b4fe; border-radius: 0.5rem; outline: none; transition: box-shadow 0.3s;"
+               onfocus="this.style.boxShadow='0 0 0 2px #a855f7';">
+      </div>
+      
+      <!-- Investment Preferences -->
+      <div style="margin-bottom: 1.5rem;">
+        <label for="investment_options" style="display: block; font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem;">
+          Preferred Investment Options:
+        </label>
+        <input type="text" id="investment_options" name="investment_options" placeholder="e.g., mutual funds, stocks"
+               style="width: 100%; padding: 0.75rem; border: 1px solid #d8b4fe; border-radius: 0.5rem; outline: none; transition: box-shadow 0.3s;"
+               onfocus="this.style.boxShadow='0 0 0 2px #a855f7';">
+      </div>
+      
+      <!-- Submit Button -->
+      <div style="text-align: center;">
+        <button type="submit"
+                style="width: 100%; background-color: #9333ea; color: white; padding: 0.75rem; border-radius: 0.5rem; transition: all 0.3s; transform: scale(1);"
+                onmouseover="this.style.backgroundColor='#7e22ce'; this.style.transform='scale(1.05)';"
+                onmouseout="this.style.backgroundColor='#9333ea'; this.style.transform='scale(1)';">
+          Optimize My Tax & Savings
+        </button>
+      </div>
+    </form>
+    
+    {% if tax_advice %}
+      <div style="margin-top: 2rem; background-color: #f5f3ff; border: 1px solid #e9d5ff; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <h2 style="font-size: 1.875rem; font-weight: 600; margin-bottom: 1rem; color: #9333ea;">
+          Tax & Savings Advice
+        </h2>
+        <div style="max-width: 100%;">
+          {{ tax_advice|safe }}
+        </div>
+      </div>
+    {% endif %}
+    
+    <!-- Back to Home -->
+    <div style="margin-top: 2rem; text-align: center;">
+      <a href="/" style="color: #7e22ce; text-decoration: none; font-size: 1.25rem;"
+         onmouseover="this.style.textDecoration='underline';"
+         onmouseout="this.style.textDecoration='none';">
+        Back to Home
+      </a>
+    </div>
+  </div>
+</body>
+</html>

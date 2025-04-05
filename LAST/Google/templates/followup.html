@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Follow-Up Questions</title>
+</head>
+<body style="background-color: white; color: #5b21b6; font-family: sans-serif;">
+  <div style="max-width: 1024px; margin: 0 auto; padding: 1.5rem;">
+    <h1 style="font-size: 3rem; font-weight: bold; margin-bottom: 2rem; text-align: center; color: purple;">
+      Follow-Up Question
+    </h1>
+
+    {% if error %}
+      <p style="color: #ef4444; margin-bottom: 1.5rem; text-align: center; font-size: 1.25rem;">{{ error }}</p>
+    {% endif %}
+    
+    <div style="background-color: #f5f3ff; border: 1px solid #e9d5ff; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1); margin-bottom: 2rem; transition: transform 0.3s;">
+      <h2 style="font-size: 1.875rem; font-weight: 600; margin-bottom: 1rem; color: #9333ea;">Your Initial Advice</h2>
+      <div style="max-width: 100%;">
+        {{ original_advice|safe }}
+      </div>
+    </div>
+    
+    <form action="/followup" method="post" 
+          style="max-width: 36rem; margin: 0 auto; background-color: white; border: 1px solid #e9d5ff; box-shadow: 0 10px 15px rgba(0,0,0,0.1); border-radius: 0.75rem; padding: 2rem; transition: transform 0.3s;">
+      
+      <div style="margin-bottom: 1.5rem;">
+        <label for="email" style="display: block; font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem;">Your Email:</label>
+        <input type="email" id="email" name="email" required 
+          style="width: 100%; padding: 0.75rem; border: 1px solid #d8b4fe; border-radius: 0.5rem; outline: none; transition: box-shadow 0.3s;"
+          onfocus="this.style.boxShadow='0 0 0 2px #a855f7';">
+      </div>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <label for="followup_question" style="display: block; font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem;">Your Follow-Up Question:</label>
+        <textarea id="followup_question" name="followup_question" rows="4" required 
+          style="width: 100%; padding: 0.75rem; border: 1px solid #d8b4fe; border-radius: 0.5rem; outline: none; resize: vertical; transition: box-shadow 0.3s;"
+          onfocus="this.style.boxShadow='0 0 0 2px #a855f7';"></textarea>
+      </div>
+      
+      <div style="text-align: center;">
+        <button type="submit" 
+          style="width: 100%; background-color: #9333ea; color: white; padding: 0.75rem; border-radius: 0.5rem; transition: all 0.3s; transform: scale(1);"
+          onmouseover="this.style.backgroundColor='#7e22ce'; this.style.transform='scale(1.05)';"
+          onmouseout="this.style.backgroundColor='#9333ea'; this.style.transform='scale(1)';">
+          Submit Question
+        </button>
+      </div>
+    </form>
+    
+    {% if followup_response %}
+      <div style="background-color: #f5f3ff; border: 1px solid #e9d5ff; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1); margin-top: 2rem; transition: transform 0.3s;">
+        <h2 style="font-size: 1.875rem; font-weight: 600; margin-bottom: 1rem; color: #9333ea;">Follow-Up Response</h2>
+        <div style="max-width: 100%;">
+          {{ followup_response|safe }}
+        </div>
+      </div>
+    {% endif %}
+    
+    <div style="margin-top: 2rem; text-align: center;">
+      <a href="/" style="color: #7e22ce; text-decoration: none; font-size: 1.25rem;"
+         onmouseover="this.style.textDecoration='underline';"
+         onmouseout="this.style.textDecoration='none';">
+        Back to Home
+      </a>
+    </div>
+  </div>
+</body>
+</html>
