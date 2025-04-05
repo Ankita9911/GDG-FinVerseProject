@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Financial Learning Path</title>
+    <style>
+        body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: rgb(89, 0, 89)
+    
+}
+
+form {
+    background: #f9e4f7;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    text-align: left;
+    max-width: 400px;
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+select, input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+button {
+    background: linear-gradient(90deg, #ff007f, #6a0dad);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    border: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #d6006e, #580e91);
+    transform: scale(1.05);
+}
+
+#results {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.video-section {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.video img {
+    width: 120px;
+    border-radius: 8px;
+}
+
+.video a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.video a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <a 
+  href="https://my-app-im5d-ankitas-projects-ceef2db6.vercel.app/" 
+  style="position: absolute; top: 1rem; left: 1rem; background-color: black; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; text-decoration: none; transition: background-color 0.3s ease;"
+  onmouseover="this.style.backgroundColor='#1f1f1f'"
+  onmouseout="this.style.backgroundColor='black'"
+>
+  Home
+</a>
+
+
+    <h1>📈 Personalized Financial Learning Path</h1>
+    <form id="financeForm">
+        <label>Marital Status:</label>
+        <select id="marriage">
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+            <option value="widowed">Widowed</option>
+        </select>
+
+        <label>Age Group:</label>
+        <select id="age">
+            <option value="18-25">18-25 (College / Early Career)</option>
+            <option value="26-35">26-35 (Mid Career Growth)</option>
+            <option value="36-45">36-45 (Peak Career)</option>
+            <option value="46-55">46-55 (Pre-Retirement)</option>
+            <option value="56+">56+ (Retirement & Legacy Planning)</option>
+        </select>
+
+        <label>Employment Type:</label>
+        <select id="employment">
+            <option value="salaried">Salaried (Private / Govt.)</option>
+            <option value="business">Business Owner</option>
+            <option value="freelancer">Freelancer / Consultant</option>
+            <option value="retired">Retired</option>
+            <option value="student">Student</option>
+        </select>
+
+        <label>Annual Income (₹):</label>
+        <select id="income">
+            <option value="low">Less than 5 LPA</option>
+            <option value="mid">5-15 LPA</option>
+            <option value="high">15-50 LPA</option>
+            <option value="ultra">50+ LPA (HNI)</option>
+        </select>
+
+        <label>Primary Investment Goal:</label>
+        <select id="goal">
+            <option value="wealth">Wealth Growth</option>
+            <option value="retirement">Retirement Planning</option>
+            <option value="passive">Passive Income</option>
+            <option value="tax">Tax Saving</option>
+            <option value="education">Children's Education Fund</option>
+            <option value="home">Buying a House</option>
+        </select>
+
+        <label>Monthly Investment Capacity (₹):</label>
+        <input type="number" id="investment" placeholder="Enter amount" min="0">
+
+        <label>Risk Appetite:</label>
+        <select id="risk">
+            <option value="low">Low (Safe & Secure)</option>
+            <option value="medium">Medium (Balanced Growth)</option>
+            <option value="high">High (Aggressive Growth)</option>
+        </select>
+
+        <label>Preferred Investment Type:</label>
+        <select id="investmentType">
+            <option value="stocks">Stocks</option>
+            <option value="mutualFunds">Mutual Funds</option>
+            <option value="gold">Gold & Precious Metals</option>
+            <option value="realEstate">Real Estate</option>
+            <option value="crypto">Cryptocurrency</option>
+            <option value="fixedDeposit">Fixed Deposits (FDs)</option>
+            <option value="bonds">Government / Corporate Bonds</option>
+            <option value="reit">REITs (Real Estate Investment Trusts)</option>
+        </select>
+
+        <button type="submit">Get Learning Plan</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        document.getElementById("financeForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+let age = document.getElementById("age").value;
+    let employment = document.getElementById("employment").value;
+    let income = document.getElementById("income").value;
+    let investment = parseInt(document.getElementById("investment").value) || 0;
+    let goal = document.getElementById("goal").value;
+    let risk = document.getElementById("risk").value;
+    let investmentType = document.getElementById("investmentType").value;
+
+    let topics = ["Personal Finance Basics", "Emergency Fund Essentials"];
+
+    // Age-Based Learning Path
+    if (age === "18-25") {
+        topics.push("Money Management for Students & Young Professionals");
+    } else if (age === "26-35") {
+        topics.push("How to Build Wealth in Your 30s");
+    } else if (age === "36-45") {
+        topics.push("Best Investment Strategies for Peak Career Growth");
+    } else if (age === "46-55") {
+        topics.push("Pre-Retirement Investment Planning");
+    } else if (age === "56+") {
+        topics.push("Retirement Planning & Passive Income Sources");
+    }
+
+    // Income & Employment Based Learning
+    if (employment === "freelancer" || employment === "business") {
+        topics.push("How to Manage Irregular Income", "Tax Planning for Self-Employed");
+    }
+
+    if (income === "low") {
+        topics.push("Best Investment Options for Low Income Earners");
+    } else if (income === "ultra") {
+        topics.push("Wealth Management & Tax Saving for HNIs");
+    }
+
+    // Goal-Based Learning
+    if (goal === "wealth") {
+        topics.push("How to Build Wealth from Scratch", "Long-Term Wealth Strategies");
+    }
+    if (goal === "retirement") {
+        topics.push("Best Retirement Plans in India", "How to Build a Retirement Corpus");
+    }
+    if (goal === "passive") {
+        topics.push("Top 5 Passive Income Sources", "Dividend Investing for Monthly Income");
+    }
+    if (goal === "tax") {
+        topics.push("Tax Saving Strategies in India", "Best ELSS Mutual Funds for Tax Savings");
+    }
+    if (goal === "education") {
+        topics.push("How to Save for Children's Education", "Best Child Investment Plans in India");
+    }
+    if (goal === "home") {
+        topics.push("How to Save for Buying a House", "Best Home Loan Options in India");
+    }
+
+    // Investment-Type-Based Learning
+    if (investmentType === "stocks") {
+        topics.push("Stock Market Basics for Beginners", "How to Pick the Best Stocks in India");
+    }
+    if (investmentType === "mutualFunds") {
+        topics.push("How to Choose the Right Mutual Funds", "Best SIPs for Beginners");
+    }
+    if (investmentType === "gold") {
+        topics.push("Investing in Gold ETFs vs Physical Gold", "How to Buy Sovereign Gold Bonds");
+    }
+    if (investmentType === "realEstate") {
+        topics.push("Real Estate Investment Strategies", "REITs vs Buying Property");
+    }
+    if (investmentType === "crypto") {
+        topics.push("Should You Invest in Cryptocurrency?", "Best Crypto Investment Strategies");
+    }
+    if (investmentType === "fixedDeposit") {
+        topics.push("Fixed Deposits vs Mutual Funds: Which is Better?", "Best High-Interest Fixed Deposits in India");
+    }
+    if (investmentType === "bonds") {
+        topics.push("Investing in Government & Corporate Bonds", "How to Buy RBI Bonds in India");
+    }
+    if (investmentType === "reit") {
+        topics.push("How to Invest in REITs in India", "Real Estate vs REITs: Which is Better?");
+    }
+            fetchYouTubeVideos(topics);
+        });
+
+        async function fetchYouTubeVideos(topics) {
+            const YT_API_KEY = "AIzaSyDgrW-jeUrpfLYZjr3gH4paO-tqvFLc128";
+            let resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "<h2>📚 Your Personalized Learning Path</h2>";
+
+            for (let topic of topics) {
+                const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(topic)}&type=video&maxResults=2&key=${YT_API_KEY}`;
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    displayVideos(data.items, topic);
+                } catch (error) {
+                    console.error("YouTube API Error:", error);
+                }
+            }
+        }
+
+        function displayVideos(videos, category) {
+            let resultsDiv = document.getElementById("results");
+            let section = document.createElement("div");
+            section.classList.add("video-section");
+            section.innerHTML = `<h3>🎯 ${category}</h3>`;
+
+            videos.forEach(video => {
+                section.innerHTML += `
+                    <div class="video">
+                        <img src="${video.snippet.thumbnails.medium.url}" alt="${video.snippet.title}">
+                        <a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank">${video.snippet.title}</a>
+                    </div>
+                `;
+            });
+
+            resultsDiv.appendChild(section);
+        }
+    </script>
+
+</body>
+</html>
