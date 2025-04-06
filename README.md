@@ -35,6 +35,7 @@ Most new investors lack access to quality education or financial advisors and de
 ---
 
 ## 💡 Solution Overview
+![FinVerse Demo](image.png)
 
 FinVerse provides a **personal AI assistant** for finance that helps users:
 
